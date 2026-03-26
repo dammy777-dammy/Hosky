@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head><title>Hosky Login</title></head>
+<body>
+<h1>🐶 HOSKY GAME</h1>
+<input id="username" placeholder="Enter username">
+<button onclick="login()">Enter</button>
+<script>
+async function login() {
+  const username = document.getElementById("username").value;
+  await fetch("/login", {
+    method: "POST",
+    headers: {"Content-Type": "application/json"},
+    body: JSON.stringify({ username })
+  });
+  localStorage.setItem("user", username);
+  window.location = "dashboard.html";
+}
+</script>
+</body>
+</html>
